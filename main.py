@@ -33,20 +33,6 @@ def main(initial=None):
     #generate boolean function
     bool_func = boolean_function(node_number, degree_k)
 
-    #return synchronous updated node status
-#   updated = synchronous_update(initial, bool_func, degree_k)
-
-
-    #generate attractor list
-#    attractor_lst = [0 for i in range(2**(node_number))]
-#    a = 0
-#    for x in initial_node:
-#        attractor_lst[a] = update_list(x, bool_func, degree_k)
-#        a += 1
-#        print(x)
-
-#    print(attractor_lst)
-
     #generate state transition list
     state_trans = [0 for i in range(2**(node_number))]
     a = 0
@@ -54,12 +40,30 @@ def main(initial=None):
         temp = update_list(x, bool_func, degree_k)
         state_trans[a] = temp
         a += 1
-    print(state_trans)   
+    print(state_trans)
 
-    df = pd.DataFrame(state_trans)
+    #Generate the list to make the data frame that is compatible to yEd
+    state_trans_data_frame = []
+    for lst in state_trans:
+        for j in range(len(lst) - 1):
+            list_1 = lst[j]
+            list_2 = lst[j + 1]
+            list_3 = [list_1, list_2]
+            state_trans_data_frame.append(list_3)
+    
+    #Filter the redandant element in state_trans_data_frame
+    filtered_data_frame = []
+    for sublist in state_trans_data_frame:
+        if sublist not in filtered_data_frame:
+            filtered_data_frame.append(sublist)
+
+    #generate the data frame to chnage it into excel
+    df = pd.DataFrame(filtered_data_frame)
+    #example of generating data frame
 #    df = pd.DataFrame([[11, 21, 31], [12, 22, 32], [31, 32, 33]],
 #                  index=['one', 'two', 'three'], columns=['a', 'b', 'c'])
-    
+
+    #generate the excel file with contents in data frame
     with pd.ExcelWriter('pandas_to_excel.xlsx') as writer:
         df.to_excel(writer, sheet_name='sheet1')
 
