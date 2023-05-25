@@ -1,4 +1,5 @@
 from itertools import product
+from bool_func_link_functionality import check_functionality
 import random
 
 def boolean_function(node, k, boolean_fuc=None):
@@ -50,6 +51,9 @@ def boolean_function(node, k, boolean_fuc=None):
                 a += 1
             temp_node[l] = temp_lst
 
+    #boolean_func = check_functionality(boolean_func)
+
     return boolean_func
 
-bool_func = boolean_function(3, 1)
+bool_func = boolean_function(4, 3)
+print(bool_func)
