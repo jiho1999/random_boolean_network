@@ -25,7 +25,6 @@ def synchronous_update(initial_stat, boolean_function, k):
                 if boolean_node[l][n+1] == con_stat_init[n]:
                     a += 1
                 if a == k:
-                    for m in range(0, k):
                         updated_status[i] = boolean_node[l][0]
 
     return updated_status

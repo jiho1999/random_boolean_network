@@ -1,21 +1,6 @@
-from random_initial import generate_initial
-from boolean_function import boolean_function
-from find_attractor import update_list
-
-from synchronous_update import synchronous_update
 from itertools import product
-
+from generate_RBN import generate_RBN
 import pandas as pd
-import openpyxl
-
-#generate the boolean lists
-def generate_bool_lists(n):
-    if n == 0:
-        return [[]]
-    else:
-        lists = generate_bool_lists(n-1)
-        return [lst+[0] for lst in lists] + [lst+[1] for lst in lists]
-
 
 def main(initial=None):
     # takes random number of nodes
@@ -24,27 +9,12 @@ def main(initial=None):
     # takes random average degree
     degree_k = int(input("Enter the average degree k: "))
 
-    #initialize initial node status
-    initial = generate_initial(node_number)
+    #generate random Boolean network
+    rbn = generate_RBN(node_number, degree_k)
 
-    #initialize all possibilites of initial node status
-    initial_node = generate_bool_lists(node_number)
-
-    #generate boolean function
-    bool_func = boolean_function(node_number, degree_k)
-
-    #generate state transition list
-    state_trans = [0 for i in range(2**(node_number))]
-    a = 0
-    for x in initial_node:
-        temp = update_list(x, bool_func, degree_k)
-        state_trans[a] = temp
-        a += 1
-    print(state_trans)
-
-    #Generate the list to make the data frame that is compatible to yEd
+    #generate the list to make the data frame that is compatible to yEd
     state_trans_data_frame = []
-    for lst in state_trans:
+    for lst in rbn:
         for j in range(len(lst) - 1):
             list_1 = lst[j]
             list_2 = lst[j + 1]
@@ -74,4 +44,3 @@ def main(initial=None):
 if __name__ == "__main__":
     
     main()
-    
