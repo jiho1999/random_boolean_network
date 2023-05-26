@@ -1,7 +1,7 @@
 import random
 
 
-def check_functionality(boolean_function, node, k):
+def make_functionality(boolean_function, node, k):
     update = False
     for a in range(0, node):
         for i in range(1, k + 1):
@@ -35,12 +35,12 @@ def check_functionality(boolean_function, node, k):
                     boolean_function[a][flip_index][0] = 0
                 update = True
     if update:
-        check_functionality(boolean_function, node, k)
+        make_functionality(boolean_function, node, k)
 
     return boolean_function
 
 
-functional = check_functionality(
+functional = make_functionality(
     [[[1, 1, 3], [0, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]], [[2, 2, 1], [1, 0, 0], [0, 0, 1], [0, 1, 0], [1, 1, 1]],
      [[3, 3, 2], [0, 0, 0], [1, 0, 1], [0, 1, 0], [1, 1, 1]]], 3, 2)
 print(functional)
