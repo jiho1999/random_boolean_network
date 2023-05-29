@@ -11,7 +11,7 @@ def main(initial=None):
 
     #generate random Boolean network
     rbn = generate_RBN(node_number, degree_k)
-
+    
     #generate the list to make the data frame that is compatible to yEd
     state_trans_data_frame = []
     for lst in rbn:
