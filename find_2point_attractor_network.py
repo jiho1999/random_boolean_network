@@ -53,13 +53,14 @@ def find_two_point_attractor(random_boolean_network):
                         ID_state_combination[temp_state] = temp_id
                 break
 
-    # Find the highest assigned ID, which corresponds to the total number of basins
+    # Assgin True in return value if highest assigned ID is 2 (total number of basins)
     highest_id = max(ID_state_combination.values())
+    two_or_not = False
+    if highest_id == 2:
+        two_or_not = True
 
-    return highest_id
+    return two_or_not, ID_state_combination
 
 
-
-print(find_two_point_attractor([[[0, 0, 0], [1, 0, 1], [0, 0, 0]], [[1, 0, 0], [0, 0, 1], [1, 0, 0]], [[0, 1, 0], [1, 0, 1], [0, 0, 0], [1, 0, 1]], 
- [[1, 1, 0], [0, 0, 1], [1, 0, 0], [0, 0, 1]], [[0, 0, 1], [1, 0, 0], [0, 0, 1]], [[1, 0, 1], [0, 0, 0], [1, 0, 1]], 
- [[0, 1, 1], [1, 0, 0], [0, 0, 1], [1, 0, 0]], [[1, 1, 1], [0, 0, 0], [1, 0, 1], [0, 0, 0]]]))
+#highest_id, id_state_combi = find_two_point_attractor([[[0, 0, 0], [1, 0, 1], [0, 0, 0]], [[1, 0, 0], [0, 0, 1], [1, 0, 0]], [[0, 1, 0], [1, 0, 1], [0, 0, 0], [1, 0, 1]], [[1, 1, 0], [0, 0, 1], [1, 0, 0], [0, 0, 1]], [[0, 0, 1], [1, 0, 0], [0, 0, 1]], [[1, 0, 1], [0, 0, 0], [1, 0, 1]],[[0, 1, 1], [1, 0, 0], [0, 0, 1], [1, 0, 0]], [[1, 1, 1], [0, 0, 0], [1, 0, 1], [0, 0, 0]]])
+#print(highest_id, id_state_combi)
