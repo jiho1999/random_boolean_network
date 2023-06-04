@@ -1,5 +1,4 @@
-from find_attractor import update_list
-from bool_func_link_functionality import make_functionality
+from generate_state_update_list import generate_state_update_list
 from boolean_function import boolean_function
 
 # generate the boolean lists
@@ -21,7 +20,7 @@ def generate_RBN(node_number, degree_k):
     random_Boolean_network = [0 for i in range(2**(node_number))]
     a = 0
     for x in initial_node:
-        temp = update_list(x, bool_func, degree_k)
+        temp = generate_state_update_list(x, bool_func, degree_k)
         random_Boolean_network[a] = temp
         a += 1
 
