@@ -10,7 +10,7 @@ def generate_bool_lists(node_num):
         return [lst+[0] for lst in lists] + [lst+[1] for lst in lists]
 
 def generate_RBN(node_number, degree_k):
-    # initialize all possibilites of initial node status
+    # initialize all possibilities of initial node status
     initial_node = generate_bool_lists(node_number)
 
     # generate functional boolean function
