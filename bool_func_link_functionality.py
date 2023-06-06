@@ -6,12 +6,16 @@ def make_functionality(boolean_function, node, k):
         for i in range(1, k + 1):
             list_0 = []
             list_1 = []
+
+            # Collect the indices of boolean_function[a] with 0 and 1 at index i
             for j in range(1, 2 ** k + 1):
                 if boolean_function[a][j][i] == 0:
                     list_0.append(boolean_function[a][j])
                 else:
                     list_1.append(boolean_function[a][j])
 
+            # Check if the selected node is functional
+            """
             g = 0
             for p in list_0:
                 temp_0 = []
@@ -26,12 +30,19 @@ def make_functionality(boolean_function, node, k):
                     if h == k:
                         if temp_0[0] == l[0]:
                             g += 1
+            """
+            g = 0
+            for p in list_0:
+                temp_0 = p.copy()
+                temp_0[i] = 1
+                for l in list_1:
+                    h = sum(l[m] == temp_0[m] for m in range(1, k + 1))
+                    if h == k and temp_0[0] == l[0]:
+                        g += 1
+
             if g == (2 ** k) / 2:
                 flip_index = random.randint(1, 2 ** k)
-                if boolean_function[a][flip_index][0] == 0:
-                    boolean_function[a][flip_index][0] = 1
-                else:
-                    boolean_function[a][flip_index][0] = 0
+                boolean_function[a][flip_index][0] ^= 1
                 update = True
     if update:
         make_functionality(boolean_function, node, k)
