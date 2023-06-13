@@ -1,5 +1,5 @@
 from itertools import product
-from bool_func_link_functionality import make_functionality
+from core.bool_func_link_functionality import make_functionality
 import random
 
 def boolean_function(node, k, boolean_func=None):

@@ -1,5 +1,5 @@
-from generate_state_update_list import generate_state_update_list
-from boolean_function import boolean_function
+from core.generate_state_update_list import generate_state_update_list
+from core.boolean_function import boolean_function
 
 # generate the boolean lists
 def generate_bool_lists(node_num):

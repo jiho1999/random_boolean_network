@@ -1,4 +1,4 @@
-from find_2point_attractor_network import find_two_point_attractor
+from core.find_2point_attractor_network import find_two_point_attractor
 
 def measure_basin_difference(id_state_combination):
     basin_1 = 0

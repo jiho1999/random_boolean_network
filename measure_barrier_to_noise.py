@@ -1,4 +1,4 @@
-from find_2point_attractor_network import find_two_point_attractor
+from core.find_2point_attractor_network import find_two_point_attractor
 import pandas as pd
 
 def measure_barrier_to_noise(random_boolean_network):

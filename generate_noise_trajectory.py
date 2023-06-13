@@ -1,5 +1,5 @@
 import random
-from boolean_function import boolean_function
+from core.boolean_function import boolean_function
 from synchronous_update import synchronous_update
 
 # generate the boolean lists
@@ -32,7 +32,7 @@ def generate_noise_trajectory(node_num, degree_k):
     T_collection = []
     for _ in range(500):
         # Update the state with noise probability p_noise = 0.01
-        
+
         N_updated = synchronous_update(N_init, bool_func, degree_k)
         if random.random() <= 0.1:  # Collection probability p_sample = 0.1
             T_collection.append(N_updated)
