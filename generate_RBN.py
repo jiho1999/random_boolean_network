@@ -25,3 +25,5 @@ def generate_RBN(node_number, degree_k):
         a += 1
 
     return random_Boolean_network
+
+#print (generate_RBN(7, 3))

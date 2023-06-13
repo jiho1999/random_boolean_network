@@ -21,5 +21,3 @@ def measure_basin_difference(id_state_combination):
 #highest_id, id_state_combi = find_two_point_attractor([[[0, 0, 0], [1, 0, 1], [0, 0, 0]], [[1, 0, 0], [0, 0, 1], [1, 0, 0]], [[0, 1, 0], [1, 0, 1], [0, 0, 0], [1, 0, 1]], 
 # [[1, 1, 0], [0, 0, 1], [1, 0, 0], [0, 0, 1]], [[0, 0, 1], [1, 0, 0], [0, 0, 1]], [[1, 0, 1], [0, 0, 0], [1, 0, 1]], 
 # [[0, 1, 1], [1, 0, 0], [0, 0, 1], [1, 0, 0]], [[1, 1, 1], [0, 0, 0], [1, 0, 1], [0, 0, 0]]])
-
-#print(measure_basin_difference(id_state_combi))
