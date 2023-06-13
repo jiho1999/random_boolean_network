@@ -1,5 +1,5 @@
-from synchronous_update import synchronous_update
-import numpy as np
+from core.synchronous_update import synchronous_update
+
 
 def find_basin_of_one_state(lst):
     basin = []

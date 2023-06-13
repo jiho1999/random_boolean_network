@@ -6,15 +6,15 @@ from measure_barrier_to_noise import measure_barrier_to_noise
 import pandas as pd
 import openpyxl
 
-def main(initial=None):
 
+def main(initial=None):
     # takes random number of nodes
     node_number = int(input("Enter the number of nodes: "))
 
     # takes random average degree
     degree_k = int(input("Enter the average degree k: "))
 
-
+    """
     # store the random Boolean nework if the networks are 2-point attractors
     two_points_attractors_networks = []
     while len(two_points_attractors_networks) < 100:
@@ -36,13 +36,11 @@ def main(initial=None):
     df = pd.DataFrame(basin_diff_barrier_to_noise, columns = ['basin_difference', 'barrier to noise'])
     with pd.ExcelWriter('basin_diff_barrier_to_noise.xlsx') as writer:
         df.to_excel(writer, sheet_name='sheet1')
-    
-    #example of generating data frame
-#    df = pd.DataFrame([[11, 21, 31], [12, 22, 32], [31, 32, 33]],
-#                  index=['one', 'two', 'three'], columns=['a', 'b', 'c'])
-
-
-"""
+    """
+    # example of generating data frame
+    #    df = pd.DataFrame([[11, 21, 31], [12, 22, 32], [31, 32, 33]],
+    #                  index=['one', 'two', 'three'], columns=['a', 'b', 'c'])
+    """
     data_size = 0
     while data_size < 200:
     
@@ -90,9 +88,9 @@ def main(initial=None):
         data_size += 1
 
     print(basin_diff_barrier_to_noise)
-"""
+    """
 
-"""
+    """
     # generate the list to make the data frame that is compatible to yEd
     state_trans_data_frame = []
     for lst in rbn:
@@ -121,8 +119,9 @@ def main(initial=None):
     # find an attractor from one random initial node
  #   attractor= update_list(initial, bool_func, degree_k)
  #   print (attractor)
-"""
+    """
+
 
 if __name__ == "__main__":
-    
+
     main()
