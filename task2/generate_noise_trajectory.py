@@ -1,15 +1,7 @@
 import random
 from core.boolean_function import boolean_function
 from core.synchronous_update import synchronous_update
-
-
-# generate the boolean lists
-def generate_bool_lists(node_num):
-    if node_num == 0:
-        return [[]]
-    else:
-        lists = generate_bool_lists(node_num - 1)
-        return [lst + [0] for lst in lists] + [lst + [1] for lst in lists]
+from generate_bool_lists import generate_bool_lists
 
 
 def generate_noise_trajectory(node_num, degree_k):
@@ -25,7 +17,6 @@ def generate_noise_trajectory(node_num, degree_k):
     while number_trajectory * 500 <= 10000:
         # 1. select one initial state from the collection of all the possible initial states
         ran_num = random.randint(0, len(initial_state) - 1)
-        print(ran_num)
         N_init = initial_state[ran_num]
         """
         # 2. generate random initial state by generating random state of each node
