@@ -16,8 +16,11 @@ def measure_degree_distribution(connection):
     for con in connection:
         con1 = con[0]
         con2 = con[1]
-        bool_dictionary[con1] += 1
-        bool_dictionary[con2] += 1
+        if con1 == con2:
+            bool_dictionary[con1] += 1
+        else:
+            bool_dictionary[con1] += 1
+            bool_dictionary[con2] += 1
 
     #store the number of links k and numer of states that correspond to the number k
     max_val = max(bool_dictionary.values())

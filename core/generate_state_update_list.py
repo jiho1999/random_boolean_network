@@ -6,7 +6,7 @@ def find_basin_of_one_state(lst):
 
     # Find the attractor in the array
     for i in range(len(lst)):
-        for j in range(i+1, len(lst)):
+        for j in range(i + 1, len(lst)):
             if lst[i] == lst[j]:
                 basin = lst[i:j]
                 break
@@ -19,9 +19,9 @@ def find_basin_of_one_state(lst):
     else:
         return False
 
+
 def generate_state_update_list(initial_stat, boolean_function, k):
-    state_update_lst = []
-    state_update_lst.append(initial_stat)
+    state_update_lst = [initial_stat]
     temp = initial_stat
 
     while True:

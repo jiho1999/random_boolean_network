@@ -2,7 +2,8 @@ from itertools import product
 from core.bool_func_link_functionality import make_functionality
 import random
 
-def boolean_function(node, k, boolean_func=None):
+
+def boolean_function(node, k):
     if node <= k:
         print("Oops! That was no valid number. Try again...")
         return 0
@@ -17,7 +18,7 @@ def boolean_function(node, k, boolean_func=None):
             ran_node = random.randint(1, node)
             randomList.add(ran_node)
         temp = [j] + list(randomList)
-        
+
         node_func[0] = temp
         boolean_func[j - 1] = node_func
 
@@ -31,8 +32,9 @@ def boolean_function(node, k, boolean_func=None):
 
     return boolean_func
 
-#bool_func = boolean_function(4, 3)
-#print(bool_func)
+
+bool_func = boolean_function(4, 3)
+print(bool_func)
 
 """
 def boolean_function(node, k, boolean_fuc=None):

@@ -89,7 +89,6 @@ def main(initial=None):
 
     print(basin_diff_barrier_to_noise)
 
-
     """
     # generate the list to make the data frame that is compatible to yEd
     state_trans_data_frame = []
@@ -106,7 +105,7 @@ def main(initial=None):
         if sublist not in filtered_data_frame:
             filtered_data_frame.append(sublist)
 
-    # generate the data frame to chnage it into excel
+    # generate the data frame to change it into excel
     df = pd.DataFrame(filtered_data_frame)
     #example of generating data frame
 #    df = pd.DataFrame([[11, 21, 31], [12, 22, 32], [31, 32, 33]],

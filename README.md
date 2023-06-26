@@ -1,6 +1,12 @@
-# Random Boolean Network
-Task1: When the genetically identical cells' networks (2-state switch) are subjected to the noise, does the internal network of the cell influence the mRNA level of the cell? 
+# Random Boolean network
+A random Boolean network is a mathematical model used to study the dynamics of complex systems, particularly in fields such as biology and physics. It consists of a collection of binary variables (nodes) time steps based on predefined rule that is called boolean function.
 
+The update of the states is done by synchronous update. In synchronous update, all the nodes are updated synchronously (simultaneously) so the result state is always same. When nodes are updated, the state of each node is determined by the states of its neighboring nodes, which are typically defined by a fixed connectivity structure called boolean function.
+
+In this project, we use RBNs to simulate and analyze the dynamic behaviors, such as 2 point attractor networks (symbolizing 1 cell) showing relationship of barrier to noise and basin difference.
+
+- Task1: Generate 100 random Boolean networks of 2 point attractor network and plot the barrier to noise and basin difference of each network. In 2 point attractor network, we can see how the basin difference affect noise barrier.
+- Task2: Generate the noise trajectory of one random Boolean network and measure the degree distribution that shows relationship between number of links (k) and the number of states that correspond to that number of links. We can figure out how internal network of the cell influence the mRNA level of the cell when the genetically identical cells' networks (2-state switch) are subjected to the noise. 
 ## Table of Contents
 
 - [Installation](#installation)
@@ -14,6 +20,9 @@ Task1: When the genetically identical cells' networks (2-state switch) are subje
 
 ## Installation
 
+The code requires Python 3.7.
+- Install openpyxl (pip install openpyxl)
+- Install pandas
 Instructions on how to install and set up your project. Include any dependencies or prerequisites required. You can use bullet points or code blocks to make the instructions more readable.
 
 ## Usage
