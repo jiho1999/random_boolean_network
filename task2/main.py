@@ -1,5 +1,5 @@
 from generate_noise_trajectory import generate_noise_trajectory
-from connect_similar_state import connect_similar_state
+from connect_nonredundant_similar_state import connect_similar_state
 from measure_degree_distribution import measure_degree_distribution
 
 
