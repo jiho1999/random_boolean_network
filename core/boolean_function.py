@@ -33,8 +33,8 @@ def boolean_function(node, k):
     return boolean_func
 
 
-bool_func = boolean_function(4, 3)
-print(bool_func)
+#bool_func = boolean_function(4, 3)
+#print(bool_func)
 
 """
 def boolean_function(node, k, boolean_fuc=None):

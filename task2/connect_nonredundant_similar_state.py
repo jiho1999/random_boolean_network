@@ -17,13 +17,6 @@ def connect_similar_state(noise_trajectory):
             if measure_similarity(tupe, trajectory_list[j]) > 0.7:
                 connection.append([tupe, trajectory_list[j]])
 
-    # filter the redundant element in state_trans_data_frame
-    filtered_connection = []
-    for sublist in connection:
-        sublist2 = sublist[::-1]
-        if sublist not in filtered_connection and sublist2 not in filtered_connection:
-            filtered_connection.append(sublist)
-
     # generate the data frame to change it into excel
     df = pd.DataFrame(connection, columns=['state1', 'state2'])
     with pd.ExcelWriter('similar_state_connection.xlsx') as writer:

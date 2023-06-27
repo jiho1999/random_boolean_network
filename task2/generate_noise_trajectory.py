@@ -16,14 +16,15 @@ def generate_noise_trajectory(node_num, degree_k):
     number_trajectory = 0
     while number_trajectory * 500 <= 10000:
         # 1. select one initial state from the collection of all the possible initial states
+        """
         ran_num = random.randint(0, len(initial_state) - 1)
         N_init = initial_state[ran_num]
         """
         # 2. generate random initial state by generating random state of each node
-            N_init = []
-            for i in range (0, node_num):
-                N_init[i] = random.randint(0, 1)
-        """
+        N_init = []
+        for i in range(0, node_num):
+            N_init.append(random.randint(0, 1))
+
         # update the initial state about 500 times with noise probability p_noise = 0.01
         # as it update the states, save the sample in T_collection with the collection probability p_sample = 0.1
         T_collection = []
@@ -48,4 +49,4 @@ def generate_noise_trajectory(node_num, degree_k):
     return trajectory_collection
 
 
-print(generate_noise_trajectory(4,3))
+print(generate_noise_trajectory(4, 3))
