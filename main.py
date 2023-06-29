@@ -88,6 +88,7 @@ def main(initial=None):
         data_size += 1
 
     print(basin_diff_barrier_to_noise)
+"""
 
 """
     # generate the list to make the data frame that is compatible to yEd
