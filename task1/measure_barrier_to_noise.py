@@ -1,18 +1,19 @@
-from find_2point_attractor_network import find_two_point_attractor
+from core.find_2point_attractor_network import find_two_point_attractor
 import pandas as pd
+
 
 def measure_barrier_to_noise(random_boolean_network):
     two_or_not, id_state_combi = find_two_point_attractor(random_boolean_network)
 
     attractor_states = set()
-    for i in range (0, len(random_boolean_network)):
+    for i in range(0, len(random_boolean_network)):
         attractor = tuple(random_boolean_network[i][-1])
         if attractor not in attractor_states:
             attractor_states.add(attractor)
         
     num_steady_state = 0
     for attractor in attractor_states:
-        for i in range (0, len(attractor)):
+        for i in range(0, len(attractor)):
             flipped_state = list(attractor).copy()
             if attractor[i] == 0:
                 flipped_state[i] = 1

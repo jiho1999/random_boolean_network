@@ -10,10 +10,8 @@ import math
 #if you find an attractor with no ID -> this is attractor 2! 
 
 #-	Repeat until all states have ID 
-#-	Highest ID = attractor number 
-[[[0, 0, 0], [1, 0, 1], [0, 0, 0]], [[1, 0, 0], [0, 0, 1], [1, 0, 0]], [[0, 1, 0], [1, 0, 1], [0, 0, 0], [1, 0, 1]], 
- [[1, 1, 0], [0, 0, 1], [1, 0, 0], [0, 0, 1]], [[0, 0, 1], [1, 0, 0], [0, 0, 1]], [[1, 0, 1], [0, 0, 0], [1, 0, 1]], 
- [[0, 1, 1], [1, 0, 0], [0, 0, 1], [1, 0, 0]], [[1, 1, 1], [0, 0, 0], [1, 0, 1], [0, 0, 0]]]
+#-	The Highest ID = attractor number
+
 
 # make dictionary for 2 point attractor random networks
 """
@@ -24,7 +22,8 @@ def generate_bool_lists(node_num):
         lists = generate_bool_lists(node_num-1)
         return [lst+[0] for lst in lists] + [lst+[1] for lst in lists]
 """
-    
+
+
 def generate_bool_lists(node_num, memo={}):
     if node_num == 0:
         return [[]]
@@ -34,6 +33,7 @@ def generate_bool_lists(node_num, memo={}):
         lists = generate_bool_lists(node_num-1)
         memo[node_num] = [lst+[0] for lst in lists] + [lst+[1] for lst in lists]
         return memo[node_num]
+
 
 def find_two_point_attractor(random_boolean_network):
     # et the number of nodes from the number of states in random Boolean network
@@ -63,7 +63,7 @@ def find_two_point_attractor(random_boolean_network):
                         ID_state_combination[temp_state] = temp_id
                 break
 
-    # Assgin True in return value if highest assigned ID is 2 (total number of basins)
+    # Assign True in return value if highest assigned ID is 2 (total number of basins)
     highest_id = max(ID_state_combination.values())
     two_or_not = False
     if highest_id == 2:
@@ -72,5 +72,7 @@ def find_two_point_attractor(random_boolean_network):
     return two_or_not, ID_state_combination
 
 
-#two_or_not, id_state_combi = find_two_point_attractor([[[0, 0, 0], [1, 0, 1], [0, 0, 0]], [[1, 0, 0], [0, 0, 1], [1, 0, 0]], [[0, 1, 0], [1, 0, 1], [0, 0, 0], [1, 0, 1]], [[1, 1, 0], [0, 0, 1], [1, 0, 0], [0, 0, 1]], [[0, 0, 1], [1, 0, 0], [0, 0, 1]], [[1, 0, 1], [0, 0, 0], [1, 0, 1]],[[0, 1, 1], [1, 0, 0], [0, 0, 1], [1, 0, 0]], [[1, 1, 1], [0, 0, 0], [1, 0, 1], [0, 0, 0]]])
-#print(two_or_not, id_state_combi)
+# two_or_not, id_state_combi = find_two_point_attractor([[[0, 0, 0], [1, 0, 1], [0, 0, 0]], [[1, 0, 0], [0, 0, 1],
+# [1, 0, 0]], [[0, 1, 0], [1, 0, 1], [0, 0, 0], [1, 0, 1]], [[1, 1, 0], [0, 0, 1], [1, 0, 0], [0, 0, 1]], [[0, 0, 1],
+# [1, 0, 0], [0, 0, 1]], [[1, 0, 1], [0, 0, 0], [1, 0, 1]],[[0, 1, 1], [1, 0, 0], [0, 0, 1], [1, 0, 0]], [[1, 1, 1],
+# [0, 0, 0], [1, 0, 1], [0, 0, 0]]]) print(two_or_not, id_state_combi)

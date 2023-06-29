@@ -1,5 +1,6 @@
-from generate_state_update_list import generate_state_update_list
-from boolean_function import boolean_function
+from core.generate_state_update_list import generate_state_update_list
+from core.boolean_function import boolean_function
+
 
 # generate the boolean lists
 def generate_bool_lists(node_num):
@@ -8,6 +9,7 @@ def generate_bool_lists(node_num):
     else:
         lists = generate_bool_lists(node_num-1)
         return [lst+[0] for lst in lists] + [lst+[1] for lst in lists]
+
 
 def generate_RBN(node_number, degree_k):
     # initialize all possibilities of initial node status

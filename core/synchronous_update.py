@@ -22,9 +22,9 @@ def synchronous_update(initial_stat, boolean_function, k):
         for l in range(1, 2 ** k):
             a = 0
             for n in range(0, k):
-                if boolean_node[l][n+1] == con_stat_init[n]:
+                if boolean_node[l][n + 1] == con_stat_init[n]:
                     a += 1
                 if a == k:
-                        updated_status[i] = boolean_node[l][0]
+                    updated_status[i] = boolean_node[l][0]
 
     return updated_status
