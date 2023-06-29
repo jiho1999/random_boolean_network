@@ -108,17 +108,17 @@ def main(initial=None):
         if sublist not in filtered_data_frame:
             filtered_data_frame.append(sublist)
 
-    #generate the data frame to chnage it into excel
+    # generate the data frame to chnage it into excel
     df = pd.DataFrame(filtered_data_frame)
     #example of generating data frame
 #    df = pd.DataFrame([[11, 21, 31], [12, 22, 32], [31, 32, 33]],
 #                  index=['one', 'two', 'three'], columns=['a', 'b', 'c'])
 
-    #generate the excel file with contents in data frame
+    # generate the excel file with contents in data frame
     with pd.ExcelWriter('pandas_to_excel.xlsx') as writer:
         df.to_excel(writer, sheet_name='sheet1')
 
-    #find an attractor from one random initial node
+    # find an attractor from one random initial node
  #   attractor= update_list(initial, bool_func, degree_k)
  #   print (attractor)
 
