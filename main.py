@@ -7,6 +7,7 @@ import pandas as pd
 import openpyxl
 
 def main(initial=None):
+-
     # takes random number of nodes
     node_number = int(input("Enter the number of nodes: "))
 
