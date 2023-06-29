@@ -16,6 +16,7 @@ def make_functionality(boolean_function, node, k):
 
             # Check if the selected node is functional
             """
+            
             g = 0
             for p in list_0:
                 temp_0 = []
