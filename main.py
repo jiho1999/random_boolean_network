@@ -119,6 +119,7 @@ def main(initial=None):
     # find an attractor from one random initial node
  #   attractor= update_list(initial, bool_func, degree_k)
  #   print (attractor)
+"""
 
 if __name__ == "__main__":
     
