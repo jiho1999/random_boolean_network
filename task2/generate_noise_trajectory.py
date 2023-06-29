@@ -49,4 +49,4 @@ def generate_noise_trajectory(node_num, degree_k):
     return trajectory_collection
 
 
-print(generate_noise_trajectory(4, 3))
+print(generate_noise_trajectory(3, 2))
