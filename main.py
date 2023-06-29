@@ -88,9 +88,9 @@ def main(initial=None):
         data_size += 1
 
     print(basin_diff_barrier_to_noise)
-"""
 
-    #generate random Boolean network
+"""
+    # generate the list to make the data frame that is compatible to yEd
     rbn = generate_RBN(node_number, degree_k)
 
     #generate the list to make the data frame that is compatible to yEd
