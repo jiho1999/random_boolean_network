@@ -91,9 +91,6 @@ def main(initial=None):
 
 """
     # generate the list to make the data frame that is compatible to yEd
-    rbn = generate_RBN(node_number, degree_k)
-
-    #generate the list to make the data frame that is compatible to yEd
     state_trans_data_frame = []
     for lst in rbn:
         for j in range(len(lst) - 1):
