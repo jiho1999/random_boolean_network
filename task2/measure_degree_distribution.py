@@ -33,6 +33,13 @@ def measure_degree_distribution(connection):
             if value != 0:
                 degree_distribution_dict[value] += 1
 
+        return degree_distribution_dict
+
+    else:
+        print("the connection of similar states from noise trajectory is empty")
+        # Have to BREAK!!!!!!!!!!!!
+
+"""
         # Convert dictionary to DataFrame
         df = pd.DataFrame(list(degree_distribution_dict.items()), columns=['Key', 'Value'])
 
@@ -41,5 +48,4 @@ def measure_degree_distribution(connection):
 
         # Export DataFrame to Excel
         df.to_excel(filename, index=False)
-    else:
-        print("the connection of similar states from noise tracjectory is empty")
+"""
