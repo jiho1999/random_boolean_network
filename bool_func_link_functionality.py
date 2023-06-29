@@ -16,7 +16,6 @@ def make_functionality(boolean_function, node, k):
 
             # Check if the selected node is functional
             """
-            
             g = 0
             for p in list_0:
                 temp_0 = []
@@ -32,7 +31,6 @@ def make_functionality(boolean_function, node, k):
                         if temp_0[0] == l[0]:
                             g += 1
             """
-            
             g = 0
             for p in list_0:
                 temp_0 = p.copy()
