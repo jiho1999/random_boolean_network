@@ -32,6 +32,7 @@ def make_functionality(boolean_function, node, k):
                         if temp_0[0] == l[0]:
                             g += 1
             """
+
             g = 0
             for p in list_0:
                 temp_0 = p.copy()
@@ -41,6 +42,7 @@ def make_functionality(boolean_function, node, k):
                     if h == k and temp_0[0] == l[0]:
                         g += 1
 
+            # Change the output of random node if certain node is not functional
             if g == (2 ** k) / 2:
                 flip_index = random.randint(1, 2 ** k)
                 boolean_function[a][flip_index][0] ^= 1
@@ -52,6 +54,6 @@ def make_functionality(boolean_function, node, k):
 
 
 #functional = make_functionality(
-#    [[[1, 1, 3], [0, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]], [[2, 2, 1], [1, 0, 0], [0, 0, 1], [0, 1, 0], [1, 1, 1]],
+#     [[[1, 1, 3], [0, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]], [[2, 2, 1], [1, 0, 0], [0, 0, 1], [0, 1, 0], [1, 1, 1]],
 #     [[3, 3, 2], [0, 0, 0], [1, 0, 1], [0, 1, 0], [1, 1, 1]]], 3, 2)
 #print(functional)
