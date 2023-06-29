@@ -1,7 +1,6 @@
 import random
 
 def make_functionality(boolean_function, node, k):
-    
     update = False
     for a in range(0, node):
         for i in range(1, k + 1):
