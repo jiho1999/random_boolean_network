@@ -102,7 +102,7 @@ def main(initial=None):
             list_3 = [list_1, list_2]
             state_trans_data_frame.append(list_3)
     
-    #Filter the redandant element in state_trans_data_frame
+    # filter the redandant element in state_trans_data_frame
     filtered_data_frame = []
     for sublist in state_trans_data_frame:
         if sublist not in filtered_data_frame:
