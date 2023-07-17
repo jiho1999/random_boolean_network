@@ -19,7 +19,7 @@ def generate_RBN(node_number, degree_k):
     bool_func = boolean_function(node_number, degree_k)
 
     # generate state transition list
-    random_Boolean_network = [0 for i in range(2**(node_number))]
+    random_Boolean_network = [0 for i in range(2 ** node_number)]
     a = 0
     for x in initial_node:
         temp = generate_state_update_list(x, bool_func, degree_k)
@@ -28,4 +28,5 @@ def generate_RBN(node_number, degree_k):
 
     return random_Boolean_network
 
-#print (generate_RBN(7, 3))
+
+#print(generate_RBN(4, 3))

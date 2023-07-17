@@ -18,9 +18,9 @@ def sample_boolean_function():
 def test_can_check_bool_func_link_functionality(sample_boolean_function):
     node_number = 3
     average_degree_k = 2
-    expected_result = [[[1, 1, 3], [0, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]],
+    expected_functional_boolean_function = [[[1, 1, 3], [0, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]],
                        [[2, 2, 1], [1, 0, 0], [0, 0, 1], [0, 1, 0], [1, 1, 1]],
                        [[3, 3, 2], [1, 0, 0], [1, 0, 1], [0, 1, 0], [1, 1, 1]]]
-    result = make_functionality(sample_boolean_function, node_number, average_degree_k)
+    result_functional_boolean_function = make_functionality(sample_boolean_function, node_number, average_degree_k)
 
-    assert result == expected_result, f"Expected: {expected_result}, Got: {result}"
+    assert result_functional_boolean_function == expected_functional_boolean_function, f"Expected: {expected_functional_boolean_function}, Got: {result_functional_boolean_function}"

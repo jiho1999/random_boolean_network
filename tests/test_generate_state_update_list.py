@@ -14,5 +14,6 @@ def test_generate_state_update_list():
          [0, 1, 1, 1]]
     ]
     expected_state_update_list = [[0, 0, 1, 0], [1, 0, 0, 1], [0, 0, 1, 1], [1, 0, 1, 1], [0, 0, 0, 0], [1, 0, 1, 1]]
+    result_state_update_list = generate_state_update_list(initial_state, boolean_function, 3)
 
-    assert generate_state_update_list([0, 0, 1, 0], boolean_function, 3)
+    assert result_state_update_list == expected_state_update_list

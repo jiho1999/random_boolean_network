@@ -11,7 +11,7 @@ def set_random_seed():
 def test_can_check_boolean_function():
     node_number = 4
     average_degree_k = 3
-    expected_result = [
+    expected_boolean_function = [
         [[1, 1, 3, 4], [1, 0, 0, 0], [0, 0, 0, 1], [1, 0, 1, 0], [1, 0, 1, 1], [1, 1, 0, 0], [1, 1, 0, 1], [0, 1, 1, 0],
          [1, 1, 1, 1]],
         [[2, 1, 3, 4], [1, 0, 0, 0], [0, 0, 0, 1], [1, 0, 1, 0], [1, 0, 1, 1], [0, 1, 0, 0], [0, 1, 0, 1], [1, 1, 1, 0],
@@ -20,6 +20,6 @@ def test_can_check_boolean_function():
          [0, 1, 1, 1]],
         [[4, 1, 2, 3], [0, 0, 0, 0], [0, 0, 0, 1], [1, 0, 1, 0], [0, 0, 1, 1], [1, 1, 0, 0], [1, 1, 0, 1], [0, 1, 1, 0],
          [0, 1, 1, 1]]]
-    result = boolean_function(node_number, average_degree_k)
+    result_boolean_function = boolean_function(node_number, average_degree_k)
 
-    assert result == expected_result
+    assert result_boolean_function == expected_boolean_function

@@ -43,11 +43,11 @@ def main(initial=None):
 
     data_size = 0
     while data_size < 10:
-    
-        #generate two point attractor network
+
+        # generate two point attractor network
         two_points_attractors_networks = []
         while len(two_points_attractors_networks) < 100:
-            #generate random Boolean network
+            # generate random Boolean network
             rbn = generate_RBN(node_number, degree_k)
             two_or_not, ID_state_combination = find_two_point_attractor(rbn)
             if two_or_not:
@@ -60,7 +60,7 @@ def main(initial=None):
             basin_diff = measure_basin_difference(ID_state_combination)
             barrier_to_noise = measure_barrier_to_noise(two_points_attractors_networks[i])
             basin_diff_barrier_to_noise.append((basin_diff, barrier_to_noise))
-        
+
         if data_size == 0:
             # Open the existing workbook or create a new one
             try:
@@ -71,7 +71,7 @@ def main(initial=None):
             # Remove the default sheet created by Workbook
             default_sheet = workbook['Sheet']
             workbook.remove(default_sheet)
-            
+
         # Generate a unique sheet name or index
         sheet_name = f"Sheet{len(workbook.sheetnames) + 1}"
 
@@ -122,5 +122,4 @@ def main(initial=None):
 
 
 if __name__ == "__main__":
-
     main()
