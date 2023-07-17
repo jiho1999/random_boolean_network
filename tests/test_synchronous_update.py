@@ -1,7 +1,4 @@
-import sys
-sys.path.append("/Users/jihopark/Desktop/Projects/random_boolean_network/core")
-
-import synchronous_update
+from core.synchronous_update import synchronous_update
 
 
 def test_can_update_synchronously():

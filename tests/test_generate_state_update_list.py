@@ -1,7 +1,5 @@
-import sys
-sys.path.append("/Users/jihopark/Desktop/Projects/random_boolean_network/core")
+from core.generate_state_update_list import generate_state_update_list
 
-from generate_state_update_list import generate_state_update_list
 
 def test_generate_state_update_list():
     initial_state = [0, 0, 1, 0]
