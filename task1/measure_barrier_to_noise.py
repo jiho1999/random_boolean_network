@@ -10,7 +10,9 @@ def measure_barrier_to_noise(random_boolean_network):
         attractor = tuple(random_boolean_network[i][-1])
         if attractor not in attractor_states:
             attractor_states.add(attractor)
-        
+
+    # Counting the number of steady states in the 2 point attractor network
+    # Steady states are the states that do not jump to different attractor network even though the state's nodes are getting flipped
     num_steady_state = 0
     for attractor in attractor_states:
         for i in range(0, len(attractor)):
@@ -21,8 +23,8 @@ def measure_barrier_to_noise(random_boolean_network):
                 flipped_state[i] = 0
             if id_state_combi[tuple(flipped_state)] == id_state_combi[tuple(attractor)]:
                 num_steady_state += 1
-    
-    fraction_no_attractor_change = num_steady_state / (len(attractor_states)*len(random_boolean_network[0][0]))
+
+    fraction_no_attractor_change = num_steady_state / (len(attractor_states) * len(random_boolean_network[0][0]))
 
     return fraction_no_attractor_change
 
