@@ -1,20 +1,16 @@
 import random
 from core.boolean_function import boolean_function
 from core.synchronous_update import synchronous_update
-from generate_bool_lists import generate_bool_lists
 
 
 def generate_noise_trajectory(node_num, degree_k):
-    # generate collection of initial states
-    initial_state = generate_bool_lists(node_num)
-    # select one random initial state (N_init) of one boolean network (There are two ways)
-
     # generate boolean function
     bool_func = boolean_function(node_num, degree_k)
 
     trajectory_collection = []
     number_trajectory = 0
     while number_trajectory * 500 <= 10000:
+        # select one random initial state (N_init) of one boolean network (There are two ways)
         # 1. select one initial state from the collection of all the possible initial states
         """
         ran_num = random.randint(0, len(initial_state) - 1)

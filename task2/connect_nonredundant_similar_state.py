@@ -15,12 +15,12 @@ def connect_similar_state(noise_trajectory):
 
     # connect the similar state
     connection = []
-    for i in range(0, len(trajectory_set)):
-        trajectory_list = list(trajectory_set)
-        tupe = trajectory_list[i]
-        for j in range(i + 1, len(trajectory_set)):
-            if measure_similarity(tupe, trajectory_list[j]) > 0.7:
-                connection.append([tupe, trajectory_list[j]])
+    trajectory_list = list(trajectory_set)
+    for i in range(0, len(trajectory_list) - 1):
+        compared_element = trajectory_list[i]
+        for j in range(i + 1, len(trajectory_list)):
+            if measure_similarity(compared_element, trajectory_list[j]) > 0.8:
+                connection.append([compared_element, trajectory_list[j]])
 
     # add redundant states
     for j in redundant_state:
@@ -35,6 +35,7 @@ def connect_similar_state(noise_trajectory):
     with pd.ExcelWriter('similar_state_connection.xlsx') as writer:
         df.to_excel(writer, sheet_name='sheet1')
 """
+
 connect = connect_similar_state([[[0, 1, 0, 0, 1], [0, 0, 1, 0, 1], [0, 0, 1, 0, 1], [0, 0, 1, 0, 1], [0, 0, 1, 0, 1],
                                   [0, 0, 1, 0, 1], [0, 0, 1, 0, 1], [0, 0, 1, 0, 1], [0, 0, 0, 0, 1], [0, 0, 1, 0, 1],
                                   [0, 0, 1, 0, 1], [0, 0, 1, 0, 1], [0, 0, 1, 0, 1], [0, 0, 1, 0, 1], [0, 0, 1, 0, 1],
@@ -268,4 +269,5 @@ connect = connect_similar_state([[[0, 1, 0, 0, 1], [0, 0, 1, 0, 1], [0, 0, 1, 0,
                                   [0, 0, 1, 1, 1], [0, 0, 1, 1, 1], [0, 0, 1, 1, 1], [0, 0, 1, 1, 1], [0, 0, 1, 1, 1],
                                   [0, 0, 1, 1, 1], [0, 0, 1, 1, 1], [0, 0, 1, 1, 1], [0, 0, 1, 1, 1], [0, 0, 1, 1, 1],
                                   [0, 0, 1, 1, 1]]])
+
 print(connect)

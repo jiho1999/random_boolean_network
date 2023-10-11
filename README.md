@@ -23,7 +23,15 @@ In this project, we use RBNs to simulate and analyze the dynamic behaviors, such
 The code requires Python 3.7.
 - Install openpyxl (pip install openpyxl)
 - Install pandas
-Instructions on how to install and set up your project. Include any dependencies or prerequisites required. You can use bullet points or code blocks to make the instructions more readable.
+
+System requirements
+- macOS 11
+
+Step-by-step installation instructions.
+How to download or clone the project's repository.
+How to install dependencies (e.g., using package managers like npm, pip, or composer).
+Configuration files that need to be edited, if any.
+Any environment variables that need to be set.
 
 ## Usage
 
