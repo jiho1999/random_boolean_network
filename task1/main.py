@@ -42,7 +42,7 @@ def main(initial=None):
     #                  index=['one', 'two', 'three'], columns=['a', 'b', 'c'])
 
     data_size = 0
-    while data_size < 10:
+    while data_size < 30:
 
         # generate two point attractor network
         two_points_attractors_networks = []

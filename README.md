@@ -27,11 +27,9 @@ The code requires Python 3.7.
 System requirements
 - macOS 11
 
-Step-by-step installation instructions.
-How to download or clone the project's repository.
-How to install dependencies (e.g., using package managers like npm, pip, or composer).
-Configuration files that need to be edited, if any.
-Any environment variables that need to be set.
+Installation instructions.
+1. find the repository where you want to download in the terminal
+2. git clone https://github.com/jiho1999/random_boolean_network.git
 
 ## Usage
 
