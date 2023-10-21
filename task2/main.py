@@ -1,6 +1,5 @@
 from generate_noise_trajectory import generate_noise_trajectory
 #from connect_nonredundant_similar_state import connect_similar_state
-from connect_similar_state import connect_similar_state
 from measure_degree_distribution import measure_degree_distribution
 import openpyxl
 
@@ -17,12 +16,10 @@ def main():
         # generate noise trajectory
         noise_trajectory = generate_noise_trajectory(node_number, degree_k)
 
-        # connect similar state in the noise trajectory
-        connection = connect_similar_state(noise_trajectory)
-        if connection:
-            # measure degree distribution of noise trajectory
-            degree_distribution_dict = measure_degree_distribution(connection)
+        # measure degree distribution of noise trajectory
+        degree_distribution_dict = measure_degree_distribution(noise_trajectory)
 
+        if degree_distribution_dict:
             # convert the dictionary into list in order to save the data using openpyxl
             degree_distribution_list = [(key, value) for key, value in degree_distribution_dict.items() if value != 0]
 

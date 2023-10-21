@@ -1,29 +1,29 @@
 from generate_bool_lists import generate_bool_lists
+from measure_similarity import measure_similarity
 import pandas as pd
 
 
-def measure_degree_distribution(connection):
-    # calculate the number of nodes
-    node_num = len(connection[0][0])
-    # generate bool_list so we can make boolean dictionary
-    bool_list = generate_bool_lists(node_num)
+def measure_degree_distribution(noise_trajectory):
+    # make several noise trajectory into one trajectory list
+    trajectory_lst = []
+    for element in noise_trajectory:
+        for i in range(0, len(element)):
+            trajectory_lst.append(element[i])
 
-    # initialize boolean dictionary that stores the number of links in each state
+    # initialize boolean dictionary that stores the number of links for each state
     bool_dictionary = dict()
-    for key in bool_list:
-        bool_dictionary[tuple(key)] = 0
+    for i in range(0, len(trajectory_lst)):
+        bool_dictionary[i] = 0
 
     # store number of links in boolean dictionary
-    for con in connection:
-        con1 = con[0]
-        con2 = con[1]
-        if con1 == con2:
-            bool_dictionary[con1] += 1
-        else:
-            bool_dictionary[con1] += 1
-            bool_dictionary[con2] += 1
+    for i in range(0, len(trajectory_lst) - 1):
+        compared_element = trajectory_lst[i]
+        for j in range(i + 1, len(trajectory_lst)):
+            if measure_similarity(compared_element, trajectory_lst[j]) > 0.8:
+                bool_dictionary[i] += 1
+                bool_dictionary[j] += 1
 
-    # store the number of links k and numer of states that correspond to the number k
+    # store the number of links k and number of states that correspond to the number k
     max_val = max(bool_dictionary.values())
     degree_distribution_dict = dict()
 
@@ -37,8 +37,9 @@ def measure_degree_distribution(connection):
     return degree_distribution_dict
 
 
-print(measure_degree_distribution([[(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 0)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 0)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 0)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 0)], [(1, 1, 1, 1, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 1, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 1, 0), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 0), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 0), (1, 1, 1, 1, 0)], [(1, 1, 1, 1, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 1, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 1, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 1, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 0)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 0)], [(1, 1, 1, 1, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 1, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)]]))
-print(measure_degree_distribution([[(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 1, 0), (1, 1, 1, 1, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)], [(1, 1, 1, 1, 1), (1, 1, 1, 1, 1)], [(1, 1, 1, 0, 0), (1, 1, 1, 0, 0)]]))
+print(measure_degree_distribution([[[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 0], [1, 1, 1, 0, 0], [1, 1, 1, 0, 0]],
+                                [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 0], [1, 1, 1, 0, 0], [1, 1, 1, 0, 0]]]))
+
 """
         # Convert dictionary to DataFrame
         df = pd.DataFrame(list(degree_distribution_dict.items()), columns=['Key', 'Value'])
